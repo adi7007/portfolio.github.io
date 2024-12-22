@@ -19,6 +19,15 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+// Get the profile picture element
+var profilePic = document.getElementById("profilePicture");
+
+// Add click event listener to open the modal with the profile picture
+profilePic.onclick = function () {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = "User's Profile Picture"; // Optional caption for profile picture
+};
 
 // Dark Mode Toggle
 const darkModeToggle = document.getElementById('darkModeToggle');
