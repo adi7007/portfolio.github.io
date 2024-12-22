@@ -1,0 +1,378 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: #f0f2f5;
+    color: #333;
+    transition: background 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+}
+
+body.dark-mode {
+    background: #181818;
+    color: #fff;
+}
+
+/* Popup Effect */
+.popup-effect {
+    position: relative;
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+.popup-effect:hover {
+    transform: translateY(-10px); /* Raises the object slightly */
+    opacity: 0.9; /* Slightly transparent on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adding shadow for depth */
+}
+
+/* Header Section */
+header {
+    background: linear-gradient(45deg, #4c6ef5, #00c6ff);
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .header-content {
+    position: relative;
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    transition: transform 0.5s ease;
+}
+
+header p {
+    font-size: 1.5em;
+    font-weight: lighter;
+    transition: transform 0.5s ease;
+}
+
+/* Page Transitions */
+.section-transition {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.7s ease-in-out;
+}
+
+.section-transition.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dark Mode Toggle */
+.dark-mode-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4c6ef5;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dark-mode-btn:hover {
+    background: #00c6ff;
+}
+
+/* Navigation */
+nav {
+    background-color: #1a1a1a;
+    position: sticky;
+    top: 0;
+    padding: 15px 0;
+    z-index: 10;
+    transform: translateY(-5px); /* Slight upward movement */
+    opacity: 0.9;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    transform: translateY(-5px); /* Slight upward movement */
+    opacity: 0.9;
+}
+
+nav a {
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    transform: translateY(-5px); /* Slight upward movement */
+    opacity: 0.9;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    color: #00c6ff;
+    transform: translateY(-5px); /* Slight upward movement */
+    opacity: 0.9;
+    background-color: rgba(0, 198, 255, 0.2); /* Adding background highlight on hover */
+}
+
+/* Download Resume Button */
+.download-resume {
+    background-color: #00c6ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.download-resume:hover {
+    background-color: #4c6ef5;
+    transform: translateY(-5px); /* Slight upward movement */
+    opacity: 0.9;
+}
+
+/* Skills Section */
+#skills {
+    padding: 60px 20px;
+    background: #fff;
+}
+
+#skills h2 {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.skills-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    background: #00c6ff;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adding shadow for depth */
+}
+
+/* Projects Section */
+#projects {
+    padding: 60px 20px;
+    background: #f0f2f5;
+}
+
+#projects h2 {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.project-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adding shadow for depth */
+}
+
+/* Certifications Section */
+#certifications {
+    padding: 60px 20px;
+    background: #fff;
+}
+
+.certification-card {
+    transform: translateY(-5px); /* Slight upward movement */
+    opacity: 0.9;
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+    margin: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certification-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adding shadow for depth */
+}
+
+.certification-card img {
+    transform: translateY(-5px); /* Slight upward movement */
+    opacity: 0.9;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 60px;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+#caption {
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #f1f1f1;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Certification Image Styling */
+.certification-card {
+    width: 200px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.certification-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certification-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Form Styling */
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.contact-form button {
+    background: #4c6ef5;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transform: translateY(-5px); /* Slight upward movement */
+    opacity: 0.9;
+}
+
+.contact-form button:hover {
+    background: #00c6ff;
+}
+
+/* Social Links Styling */
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-btn {
+    padding: 12px 25px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: inline-block;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-5px); /* Slight upward movement */
+    opacity: 0.9;
+}
+
+.github-btn {
+    background-color: #333;
+}
+
+.github-btn:hover {
+    background-color: #24292f;
+}
+
+.linkedin-btn {
+    background-color: #0077b5;
+}
+
+.linkedin-btn:hover {
+    background-color: #005682;
+}
+
+.email-btn {
+    background-color: #ea4335;
+}
+
+.email-btn:hover {
+    background-color: #d93025;
+}
