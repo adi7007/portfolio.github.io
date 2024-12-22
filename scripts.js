@@ -29,6 +29,28 @@ profilePic.onclick = function () {
     captionText.innerHTML = "User's Profile Picture"; // Optional caption for profile picture
 };
 
+// JavaScript for Scroll Up/Down Effect
+let lastScrollPosition = 0;
+const navBar = document.querySelector('nav');
+const darkToggleButton = document.querySelector('.dark-mode-toggle'); // Assuming your dark toggle button has this class
+
+window.addEventListener('scroll', () => {
+    const currentScrollPosition = window.pageYOffset;
+
+    if (currentScrollPosition > lastScrollPosition) {
+        // Scrolling Down
+        navBar.style.transform = 'translateY(-100%)';
+        darkToggleButton.style.transform = 'translateY(-100%)';
+    } else {
+        // Scrolling Up
+        navBar.style.transform = 'translateY(0)';
+        darkToggleButton.style.transform = 'translateY(0)';
+    }
+
+    lastScrollPosition = currentScrollPosition;
+});
+
+
 // Dark Mode Toggle
 const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
