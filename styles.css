@@ -15,6 +15,13 @@ body.dark-mode {
     color: #fff;
 }
 
+/* Container for content */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 /* Popup Effect */
 .popup-effect {
     position: relative;
@@ -22,9 +29,9 @@ body.dark-mode {
 }
 
 .popup-effect:hover {
-    transform: translateY(-10px); /* Raises the object slightly */
-    opacity: 0.9; /* Slightly transparent on hover */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adding shadow for depth */
+    transform: translateY(-10px);
+    opacity: 0.9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Header Section */
@@ -32,42 +39,34 @@ header {
     background: linear-gradient(45deg, #4c6ef5, #00c6ff);
     color: #fff;
     text-align: center;
-    padding: 80px 20px;
+    padding: 5vw 5%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-header .header-content {
-    position: relative;
-    z-index: 2;
-}
-
 header h1 {
-    font-size: 3.5em;
-    margin-bottom: 10px;
-    transition: transform 0.5s ease;
+    font-size: 2.5rem;
 }
 
 header p {
-    font-size: 1.5em;
-    font-weight: lighter;
-    transition: transform 0.5s ease;
-}
-/* Profile Section */
-#profile-section {
-    text-align: center;
-    margin: 30px 0;
-    padding: 30px;
+    font-size: 1.2rem;
 }
 
+.download-resume {
+    font-size: 1rem;
+}
+
+/* Profile Section */
 .profile-container {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .profile-picture {
-    width: 300px;
-    height: 300px;
+    width: 40vw;
+    max-width: 300px;
     border-radius: 60%;
-    border: 4px solid #4c6ef5; /* Subtle highlight around the picture */
+    border: 4px solid #4c6ef5;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -77,18 +76,98 @@ header p {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
-#userName {
-    margin: 15px 0 5px;
-    font-size: 1.8em;
-    color: #4c6ef5; /* Matches the design theme */
+/* Navigation */
+nav {
+    background-color: #1a1a1a;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-#userBio {
-    font-size: 1.1em;
-    color: #555;
-    max-width: 400px;
-    margin: 0 auto;
-    line-height: 1.5;
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav a {
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+/* Sections */
+section {
+    padding: 5vw 5%;
+}
+
+#skills .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill-card {
+    flex: 1 1 calc(33% - 30px);
+    max-width: 300px;
+}
+
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.project-card {
+    flex: 1 1 calc(33% - 30px);
+    max-width: 300px;
+}
+
+/* Contact Section */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    .skill-card, .project-card {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
 }
 
 /* Page Transitions */
