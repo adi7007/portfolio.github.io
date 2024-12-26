@@ -123,6 +123,77 @@ nav {
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
+/* Dark Mode Styles */
+body.dark-mode {
+    background: #181818;
+    color: #fff;
+}
+
+body.dark-mode header {
+    background: linear-gradient(45deg, #2a3d84, #0094ff); /* Darker gradient for header */
+}
+
+body.dark-mode .skill-card,
+body.dark-mode .project-card,
+body.dark-mode .certification-card {
+    background: #333; /* Dark background for cards */
+    color: #fff; /* Light text for contrast */
+}
+
+body.dark-mode nav {
+    background-color: #121212;
+}
+
+body.dark-mode .popup-effect:hover {
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2); /* Adjusted shadow for visibility */
+}
+
+/* Projects Section Visibility in Dark Mode */
+body.dark-mode #projects {
+    background: #1e1e1e; /* Dark background for project section */
+}
+
+body.dark-mode #projects h2 {
+    color: #fff; /* Light text color for heading */
+}
+
+body.dark-mode .project-card {
+    background: #333; /* Ensure project cards have a dark background in dark mode */
+    color: #fff; /* Ensure text color is visible */
+}
+
+/* Dark Mode Button */
+.dark-mode-btn {
+    background: #4c6ef5;
+    color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.dark-mode-btn:hover {
+    background: #00c6ff;
+}
+
+/* Modal in Dark Mode */
+body.dark-mode .modal {
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly darker modal background */
+}
+
+body.dark-mode .modal-content {
+    background-color: #333; /* Dark modal content */
+    border-radius: 10px;
+}
+
+body.dark-mode .close-btn {
+    color: #fff; /* Light close button */
+}
+
+body.dark-mode #caption {
+    color: #fff;
+}
+
 
 
 /* Sections */
