@@ -16,7 +16,7 @@ const highlightNav = () => {
     let currentSection = '';
 
     sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 150;
+        const sectionTop = section.offsetTop - 100;
         if (pageYOffset >= sectionTop) {
             currentSection = section.getAttribute('id');
         }
