@@ -1,13 +1,23 @@
 // Dynamic Navbar Highlight
 const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('nav a');
+const navLinks = document.querySelectorAll('.nav-link');
 
-window.addEventListener('scroll', () => {
+// Debounced scroll handler for highlighting nav links and navbar scroll effect
+const debounce = (func, delay = 50) => {
+    let timeout;
+    return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), delay);
+    };
+};
+
+// Highlight navbar links based on scroll position
+const highlightNav = () => {
     let currentSection = '';
 
     sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 150) {
+        const sectionTop = section.offsetTop - 150;
+        if (pageYOffset >= sectionTop) {
             currentSection = section.getAttribute('id');
         }
     });
@@ -18,67 +28,65 @@ window.addEventListener('scroll', () => {
             link.classList.add('active');
         }
     });
-});
-
-// Get the profile picture element and modal elements
-const profilePic = document.getElementById("profilePicture");
-const modal = document.getElementById("certificateModal");
-const modalImg = document.getElementById("modalImg");
-const captionText = document.getElementById("caption");
-const closeModalBtn = document.getElementById("closeModalBtn");
-
-// Open modal when profile picture is clicked
-profilePic.onclick = function () {
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = "User's Profile Picture"; // Optional caption for profile picture
 };
 
-// Close modal when the close button is clicked
-closeModalBtn.onclick = function () {
-    modal.style.display = "none";
-};
-
-// Close the modal if the user clicks anywhere outside of the image
-window.onclick = function (event) {
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-};
-
-// JavaScript for Scroll Up/Down Effect
+// Navbar Scroll Effect
 let lastScrollPosition = 0;
 const navBar = document.querySelector('nav');
-const darkToggleButton = document.querySelector('.dark-mode-toggle'); // Assuming your dark toggle button has this class
 
-window.addEventListener('scroll', () => {
+// Handle scroll direction for navbar visibility
+const handleNavbarScroll = () => {
     const currentScrollPosition = window.pageYOffset;
 
-    // Scrolling up or down effect for navbar and dark toggle button
     if (currentScrollPosition > lastScrollPosition) {
         navBar.style.transform = 'translateY(-100%)';
-        darkToggleButton.style.transform = 'translateY(-100%)';
     } else {
         navBar.style.transform = 'translateY(0)';
-        darkToggleButton.style.transform = 'translateY(0)';
     }
 
     lastScrollPosition = currentScrollPosition;
+};
+
+// Modal Logic
+const modal = document.getElementById('certificateModal');
+const modalImg = document.getElementById('modalImg');
+const captionText = document.getElementById('caption');
+const closeModalBtn = document.getElementById('closeModalBtn');
+
+// Open modal function
+const openModal = (src, alt) => {
+    modal.style.display = 'flex';
+    modalImg.src = src;
+    captionText.innerHTML = alt || 'Profile Picture';
+};
+
+// Close modal function
+const closeModal = () => {
+    modal.style.display = 'none';
+};
+
+// Modal event listeners for profile picture and certificate images
+const profilePic = document.getElementById('profilePicture');
+profilePic.onclick = () => openModal(profilePic.src, profilePic.alt);
+document.querySelectorAll('.certificate-img').forEach((img) => {
+    img.onclick = () => openModal(img.src, img.alt);
 });
+closeModalBtn.onclick = closeModal;
+window.onclick = (event) => {
+    if (event.target === modal) closeModal();
+};
 
 // Dark Mode Toggle
 const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
 
-// Toggle Dark Mode and Save Preference
 darkModeToggle.addEventListener('click', () => {
     const isDarkModeEnabled = body.classList.toggle('dark-mode');
     localStorage.setItem('darkMode', isDarkModeEnabled ? 'enabled' : 'disabled');
-    // Update the icon for dark/light mode
     darkModeToggle.textContent = isDarkModeEnabled ? '🌞' : '🌙';
 });
 
-// Apply Saved Dark Mode Preference
+// Load dark mode setting from localStorage
 if (localStorage.getItem('darkMode') === 'enabled') {
     body.classList.add('dark-mode');
     darkModeToggle.textContent = '🌞'; // Set the icon to sun for dark mode
@@ -104,30 +112,13 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.3 });
 
+// Observing all fade-in and transition sections
 [...fadeInSections, ...transitionSections].forEach((section) =>
     observer.observe(section)
 );
 
-// Get the image elements that trigger the modal
-var images = document.querySelectorAll(".certificate-img");
-
-// Loop through each image and add an event listener to open the modal
-images.forEach(function (img) {
-    img.onclick = function () {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt; // Optional caption, can be customized
-    }
-});
-
-// Close the modal when the close button is clicked
-closeModalBtn.onclick = function () {
-    modal.style.display = "none";
-}
-
-// Close the modal if the user clicks anywhere outside of the image
-window.onclick = function (event) {
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-}
+// Attach event listeners to the scroll events
+window.addEventListener('scroll', debounce(() => {
+    highlightNav();
+    handleNavbarScroll();
+}));
