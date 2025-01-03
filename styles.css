@@ -232,42 +232,67 @@ section {
     max-width: 600px;
 }
 
-/* Media Queries */
-@media (max-width: 1024px) {
-    .skill-card, .project-card {
-        flex: 1 1 calc(50% - 1rem);
-    }
+/* Base styles (mobile-first approach) */
+header h1 {
+    font-size: 1.8rem;
 }
 
-@media (max-width: 768px) {
+header p {
+    font-size: 1rem;
+}
+
+nav ul {
+    flex-direction: column;
+    gap: 0.5rem; /* Adds spacing between items */
+}
+
+nav a {
+    font-size: 0.9rem;
+}
+
+.skill-card, .project-card {
+    flex: 1 1 100%; /* Default to full width */
+    margin-bottom: 1rem; /* Add spacing */
+}
+
+/* Media Queries */
+
+/* For tablets and larger screens */
+@media (min-width: 480px) {
     header h1 {
         font-size: 2rem;
     }
 
     header p {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     nav ul {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .skill-card, .project-card {
-        flex: 1 1 100%;
+        flex: 1 1 calc(50% - 1rem); /* Two cards per row */
     }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 768px) {
     header h1 {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
     }
 
     header p {
-        font-size: 0.9rem;
+        font-size: 1.5rem;
     }
 
     nav a {
-        font-size: 0.9rem;
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .skill-card, .project-card {
+        flex: 1 1 calc(33.333% - 1rem); /* Three cards per row */
     }
 }
 
